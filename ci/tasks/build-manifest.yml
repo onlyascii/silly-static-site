@@ -6,7 +6,8 @@ image_resource:
 
 outputs:
 - name: deployment-stuff
-
+params:
+  APP_NAME:
 run:
   path: sh
   args:
@@ -15,6 +16,6 @@ run:
     cat <<EOF > deployment-stuff/manifest.yml
     ---
     applications:
-      - name: silly-app
+      - name: $APP_NAME
         memory: 64M
     EOF

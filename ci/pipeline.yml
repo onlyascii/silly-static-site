@@ -26,10 +26,12 @@ jobs:
         file: silly-repo/ci/pipeline.yml
         vars:
           branch: main
-          uri: https://github.com/onlyascii/silly-static-site.git
+          uri: https://github.com/matiaszilli/silly-static-site.git
           api: https://api.de.a9s.eu
       - task: build-manifest
         file: silly-repo/ci/tasks/build-manifest.yml
+        params:
+          APP_NAME: myapp-panosteacher
       - put: resource-deploy-web-app
         params:
           path: silly-repo
