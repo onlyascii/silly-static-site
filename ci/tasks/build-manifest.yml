@@ -1,23 +1,17 @@
-
 platform: linux
+
 image_resource:
   type: registry-image
   source: { repository: busybox }
 
+inputs:
+- name: silly-repo
+
 outputs:
 - name: deployment-stuff
+
 params:
   APP_NAME:
+
 run:
-  path: sh
-  args:
-  - -exc
-  - |
-    cat <<EOF > deployment-stuff/manifest.yml
-    ---
-    applications:
-      - name: $APP_NAME
-        memory: 64M
-        random-route: true
-        disk: 10M
-    EOF
+  path: silly-repo/ci/tasks/build-manifest.sh
