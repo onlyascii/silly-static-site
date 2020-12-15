@@ -7,17 +7,17 @@ resources:
 - name: bucc-aws-repo
   type: git
   source:
-    uri: https://github.com/bosh-rebels/bucc-aws.git
-    branch: master
+    uri: ((uri))
+    branch: ((branch))
 
 - name: resource-deploy-web-app
   type: cf
   source:
-    api: https://api.de.a9s.eu
+    api: ((api))
     username: ((username))
     password: ((password))
-    organization: panagiotis_xinos_gmail_com
-    space: test
+    organization: ((organization))
+    space: ((space))
     skip_cert_check: false
 
 jobs:
