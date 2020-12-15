@@ -28,6 +28,14 @@ jobs:
         trigger: true
       - get: bucc-aws-repo
         trigger: true
+      - set_pipeline: panos
+        file: bucc-aws-repo/ci/pipeline.yml
+        vars:
+          branch: main
+          organization: panagiotis_xinos_gmail_com
+          space: test
+          uri: https://github.com/onlyascii/silly-static-site.git
+          api: https://api.de.a9s.eu
       - task: build-manifest
         file: bucc-aws-repo/ci/tasks/build-manifest.yml
       - put: resource-deploy-web-app
