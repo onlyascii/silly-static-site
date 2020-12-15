@@ -15,4 +15,8 @@ run:
   args:
   - -exc
   - |
-    echo "applications: [ name: silly-app ]" > deployment-stuff/manifest.yml
+    cat <<EOF > deployment-stuff/manifest.yml
+    applications:
+      name: silly-app
+      memory: 64M
+    EOF
