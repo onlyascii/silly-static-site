@@ -1,9 +1,5 @@
 ---
 resources:
-- name: 5m
-  type: time
-  source: {interval: 5m}
-
 - name: silly-repo
   type: git
   source:
@@ -24,8 +20,6 @@ jobs:
   - name: cf-push-a-git-repo
     public: true
     plan:
-      - get: 5m
-        trigger: true
       - get: silly-repo
         trigger: true
       - set_pipeline: panos
