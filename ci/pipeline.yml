@@ -27,6 +27,7 @@ jobs:
       - get: 5m
         trigger: true
       - get: bucc-aws-repo
+        trigger: true
       - task: build-manifest
         file: bucc-aws-repo/ci/tasks/build-manifest.yml
       - put: resource-deploy-web-app
