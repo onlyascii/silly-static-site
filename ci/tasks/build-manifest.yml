@@ -16,4 +16,3 @@ run:
   - -exc
   - |
     echo "applications: [ name: silly-app ]" > deployment-stuff/manifest.yml
-    exit 1
