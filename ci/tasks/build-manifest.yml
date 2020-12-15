@@ -18,4 +18,5 @@ run:
     applications:
       - name: $APP_NAME
         memory: 64M
+        random-route: true
     EOF
