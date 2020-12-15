@@ -1,0 +1,36 @@
+---
+resources:
+- name: 5m
+  type: time
+  source: {interval: 5m}
+
+- name: bucc-aws-repo
+  type: git
+  source:
+    uri: https://github.com/bosh-rebels/bucc-aws.git
+    branch: master
+
+- name: resource-deploy-web-app
+  type: cf
+  source:
+    api: https://api.de.a9s.eu
+    username: ((username))
+    password: ((password))
+    organization: panagiotis_xinos_gmail_com
+    space: test
+    skip_cert_check: false
+
+jobs:
+  - name: cf-push-a-git-repo
+    public: true
+    plan:
+      - get: 5m
+        trigger: true
+      - get: bucc-aws-repo
+      - task: build-manifest
+        file: bucc-aws-repo/ci/tasks/build-manifest.yml
+      - put: resource-deploy-web-app
+        params:
+          path: bucc-aws-repo
+          show_app_log: true
+          manifest: deployment-stuff/manifest.yml

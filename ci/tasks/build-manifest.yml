@@ -1,0 +1,15 @@
+
+platform: linux
+image_resource:
+  type: registry-image
+  source: { repository: busybox }
+
+outputs:
+- name: deployment-stuff
+
+run:
+  path: sh
+  args:
+  - -exc
+  - |
+    echo "applications: [ name: silly-app ]" > deployment-stuff/manifest.yml
