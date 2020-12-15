@@ -13,7 +13,8 @@ run:
   - -exc
   - |
     cat <<EOF > deployment-stuff/manifest.yml
+    ---
     applications:
-      name: silly-app
-      memory: 64M
+      - name: silly-app
+        memory: 64M
     EOF
