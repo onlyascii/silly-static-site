@@ -1,4 +1,6 @@
 #!/bin/bash
 
+credhub set -n /concourse/main/panos/organization -t value -v ""
 credhub set -n /concourse/main/panos/password -t value -v ""
+credhub set -n /concourse/main/panos/space -t value -v ""
 credhub set -n /concourse/main/panos/username -t value -v ""
